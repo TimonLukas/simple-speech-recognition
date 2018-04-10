@@ -1,3 +1,5 @@
+import DummySpeechRecognition from './DummySpeechRecognition'
+
 export default class SpeechRecognizer {
   /**
    * @param options All the options you want to supply
@@ -17,7 +19,7 @@ export default class SpeechRecognizer {
       lang,
       interimResults
     } = Object.assign({}, {
-      SpeechRecognition: window.SpeechRecognition || window.webkitSpeechRecognition,
+      SpeechRecognition: window.SpeechRecognition || window.webkitSpeechRecognition || DummySpeechRecognition,
       timeout: 1000,
       resetCallback: () => {},
       resultCallback: () => {},
