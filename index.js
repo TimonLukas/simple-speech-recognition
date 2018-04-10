@@ -10,7 +10,7 @@ export default class SpeechRecognizer {
    * @param options.lang The lang the speech recognition object is set to. Go look up your lang code on MDN!
    * @param options.interimResults Whether you want to receive interim results or not.
    */
-  constructor (options) {
+  constructor (options = {}) {
     const {
       SpeechRecognition,
       timeout,
