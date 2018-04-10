@@ -1,6 +1,6 @@
 {
   "name": "simple-speech-recognition",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple wrapper for Speech Recognition APIs in the browser",
   "main": "index.js",
   "scripts": {
