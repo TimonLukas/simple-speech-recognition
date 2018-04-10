@@ -36,6 +36,8 @@ export default class SpeechRecognizer {
     this.speechRecognition.interimResults = true
 
     this.speechRecognition.onerror = resetCallback
+
+    this.dummy = SpeechRecognition === DummySpeechRecognition
   }
 
   /**
@@ -73,5 +75,13 @@ export default class SpeechRecognizer {
    */
   abort () {
     this.speechRecognition.abort()
+  }
+
+  /**
+   * Returns whether the dummy fallback is used or not
+   * @return {boolean}
+   */
+  isDummy () {
+    return this.dummy
   }
 }
