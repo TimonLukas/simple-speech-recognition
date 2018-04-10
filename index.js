@@ -1,4 +1,13 @@
 export default class SpeechRecognizer {
+  /**
+   * @param options All the options you want to supply
+   * @param options.SpeechRecognition The SpeechRecognition constructor you want to use. Defaults to window.SpeechRecognition or, if not available, window.webkitSpeechRecognition.
+   * @param options.timeout Timeout until a given speech recognition is completed (time after the user spoke his last word).
+   * @param options.resetCallback This is called when any kind of error happens. If this happens, just reset your UI state, and handle the error.
+   * @param options.resultCallback The callback which receives results. They consist of a { transcript, finished }.
+   * @param options.lang The lang the speech recognition object is set to. Go look up your lang code on MDN!
+   * @param options.interimResults Whether you want to receive interim results or not.
+   */
   constructor (options) {
     const {
       SpeechRecognition,
@@ -27,6 +36,9 @@ export default class SpeechRecognizer {
     this.speechRecognition.onerror = resetCallback
   }
 
+  /**
+   * Starts the speech recognition process
+   */
   start () {
     this.speechRecognition.abort()
     this.speechRecognition.start()
@@ -54,6 +66,9 @@ export default class SpeechRecognizer {
     }
   }
 
+  /**
+   * Aborts any running speech recognition process
+   */
   abort () {
     this.speechRecognition.abort()
   }
