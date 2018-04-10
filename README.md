@@ -3,6 +3,13 @@ Why make it complicated if it can be simple?
 This small library abstracts away all those nitty-gritty details you have to pay attention to when using the
 browser-integrated `SpeechRecognition`, and lets you focus on what's important: **your own code**.
 
+## Speech Recognition
+Speech recognition is an experimental technology, which is currently being implemented in Browsers (at the time of writing, Chrome is the only one to fully support this).
+
+With this technology you can put in texts into your computer using voice: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+
+This library is a wrapper around the in-browser API. It "fixes" some of the quirky behaviour I've encountered and makes it more simple to be used.
+
 ## Installation
 Install this package using `npm` or `yarn`:
 ```
@@ -45,3 +52,15 @@ The `resultCallback` receives the following message:
 ```
 
 You won't receive any messages with `finished: false` if you passed `interimResults: false` to the constructor.
+
+## Example
+Here is a simple example, which will log speech recognition results to the console:
+```
+import SpeechRecognizer from 'simple-speech-recognition'
+
+const speechRecognizer = new SpeechRecognizer({
+    resultCallback: ({ transcript, finished }) => console.log(transcript)
+})
+
+speechRecognizer.start()
+```
